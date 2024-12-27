@@ -7,24 +7,24 @@
 #include "driver/spi_master.h"
 
 #define SPI_ETHERNETS_NUM           (1)
-#define PIN_NUM_MISO                (19)      // Chân MISO
-#define PIN_NUM_MOSI                (23)      // Chân MOSI
-#define PIN_NUM_CLK                 (18)      // Chân Clock
-#define PIN_NUM_CS                  (5)       // Chân Chip Select (CS)
-#define PIN_NUM_INT                 (-1)      // Chân Interrupt (INT)
-#define PIN_NUM_RST                 (-1)      // Chân Interrupt (INT)
-#define CLK_SPEED_SPI               (20)      // Tốc độ SPI (20 MHz)
-#define ETH_PHY_ADDR                (1)
-#define POLL_TIME                   (10)
-#define ETH_SPI_HOST                (2)
+#define PIN_NUM_MISO                (19)      // ETH SPI MISO
+#define PIN_NUM_MOSI                (23)      // ETH SPI MOSI
+#define PIN_NUM_CLK                 (18)      // ETH SPI Clock
+#define PIN_NUM_CS                  (5)       // ETH SPI Chip Select (CS)
+#define PIN_NUM_INT                 (-1)      // ETH SPI Interrupt (INT)
+#define PIN_NUM_RST                 (-1)      // ETH SPI Reset (RST)
+#define CLK_SPEED_SPI               (20)      // Speed SPI (20 MHz)
+#define ETH_PHY_ADDR                (1)       // ETH PHY Address
+#define POLL_TIME                   (10)      // ETH Polling time
+#define ETH_SPI_HOST                (2)       // ETH SPI Host
 
 #define INIT_SPI_ETH_MODULE_CONFIG(eth_module_config, num)                                      \
     do {                                                                                        \
         eth_module_config[num].spi_cs_gpio = PIN_NUM_CS;           \
         eth_module_config[num].int_gpio = PIN_NUM_INT;             \
-        eth_module_config[num].polling_ms = POLL_TIME;         \
-        eth_module_config[num].phy_reset_gpio = PIN_NUM_RST;   \
-        eth_module_config[num].phy_addr = ETH_PHY_ADDR;                \
+        eth_module_config[num].polling_ms = POLL_TIME;             \
+        eth_module_config[num].phy_reset_gpio = PIN_NUM_RST;       \
+        eth_module_config[num].phy_addr = ETH_PHY_ADDR;            \
     } while(0)
 
 typedef struct {
